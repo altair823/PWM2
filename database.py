@@ -24,7 +24,7 @@ class Database:
 
     def saveFile(self):
         with open(self.filename, 'w', encoding='utf-8') as dataFile:
-            dump(self.PWs, dataFile)
+            dump(self.PWs, dataFile, indent=4)
 
     def delSite(self, encryptedSiteName):
         if encryptedSiteName in self.PWs:

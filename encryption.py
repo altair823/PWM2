@@ -25,7 +25,7 @@ class Encryption:
             raise AttributeError
         # 비밀번호와 salt 로 해시값을 구하여 검증한다.
         # 만약 데이터 파일이 없다면 검증하지 않는다.
-        if  isCreateInitial is False and sha3_512(inputPW.encode() + salt).hexdigest() != hashedStr:
+        if  isCreateInitial is False and self.hashing(inputPW) != hashedStr:
             print(sha3_512(inputPW.encode() + salt).hexdigest())
             raise exceptions.InvalidKey
         # salt 는 이후에도 해당 파일을 암호화 할 때 사용할 키를 생성하는데 쓴다.
@@ -46,3 +46,6 @@ class Encryption:
 
     def encryptPW(self, rawText):
         return self.fernet.encrypt(rawText.encode()).decode()
+
+    def hashing(self, text):
+        return sha3_512(text.encode() + self.salt).hexdigest()

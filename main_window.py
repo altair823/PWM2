@@ -74,14 +74,13 @@ class MainWindow(QMainWindow, Ui_PWMMainWindow):
         else:
             # 패스워드를 생성한다.
             PW = self.generator.makePW()
-            if self.comboBoxSiteList.currentText() == self.cryptoMachine.decryptPW(self.database)
-            self.database.PWs[self.cryptoMachine.encryptPW(self.comboBoxSiteList.currentText())] = \
-                self.cryptoMachine.encryptPW(PW)
+            currentHashedSitename = self.cryptoMachine.hashing(self.comboBoxSiteList.currentText())
+            self.database.PWs[currentHashedSitename] = {self.lineEditID.text(): self.cryptoMachine.encryptPW(PW)}
             self.lineEditPW.setText(PW)
 
     def findID(self):
         decryptedIDList = []
-        if self.comboBoxSiteList.currentText() in self.cryptoMachine.PWs:
+        if self.cryptoMachine.hashing(self.comboBoxSiteList.currentText()) in self.database.PWs:
             encryptedIDList = list(self.cryptoMachine.PWs[self.comboBoxSiteList.currentText()].keys())
             for i in encryptedIDList:
                 decryptedIDList.append(self.cryptoMachine.fernet.decrypt(i.encode()).decode())
