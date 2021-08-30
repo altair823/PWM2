@@ -12,6 +12,7 @@ class InputKeyWindow(QDialog, Ui_DialogInputKeyWindow):
 
     def inputKey(self):
         self.key = self.lineEditKey.text()
+        self.otp = self.lineEditOTP.text()
 
     def closeEvent(self, event):
         self.quitFlag = True

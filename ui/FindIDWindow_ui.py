@@ -14,29 +14,36 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_IDFindWindow(object):
     def setupUi(self, IDFindWindow):
         IDFindWindow.setObjectName("IDFindWindow")
-        IDFindWindow.resize(220, 333)
+        IDFindWindow.resize(387, 411)
         self.gridLayout = QtWidgets.QGridLayout(IDFindWindow)
         self.gridLayout.setObjectName("gridLayout")
-        self.buttonBox = QtWidgets.QDialogButtonBox(IDFindWindow)
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.buttonBox.setCenterButtons(True)
-        self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
         self.listWidgetIDs = QtWidgets.QListWidget(IDFindWindow)
         self.listWidgetIDs.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.listWidgetIDs.setTextElideMode(QtCore.Qt.ElideMiddle)
         self.listWidgetIDs.setObjectName("listWidgetIDs")
         self.gridLayout.addWidget(self.listWidgetIDs, 0, 0, 1, 1)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.pushButtonSelectID = QtWidgets.QPushButton(IDFindWindow)
+        self.pushButtonSelectID.setObjectName("pushButtonSelectID")
+        self.horizontalLayout.addWidget(self.pushButtonSelectID)
+        self.pushButtonDeleteID = QtWidgets.QPushButton(IDFindWindow)
+        self.pushButtonDeleteID.setObjectName("pushButtonDeleteID")
+        self.horizontalLayout.addWidget(self.pushButtonDeleteID)
+        self.pushButtonClose = QtWidgets.QPushButton(IDFindWindow)
+        self.pushButtonClose.setObjectName("pushButtonClose")
+        self.horizontalLayout.addWidget(self.pushButtonClose)
+        self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
 
         self.retranslateUi(IDFindWindow)
-        self.buttonBox.accepted.connect(IDFindWindow.accept)
-        self.buttonBox.rejected.connect(IDFindWindow.reject)
         QtCore.QMetaObject.connectSlotsByName(IDFindWindow)
 
     def retranslateUi(self, IDFindWindow):
         _translate = QtCore.QCoreApplication.translate
         IDFindWindow.setWindowTitle(_translate("IDFindWindow", "Stored IDs"))
+        self.pushButtonSelectID.setText(_translate("IDFindWindow", "선택"))
+        self.pushButtonDeleteID.setText(_translate("IDFindWindow", "삭제"))
+        self.pushButtonClose.setText(_translate("IDFindWindow", "닫기"))
 
 
 if __name__ == "__main__":

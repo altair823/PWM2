@@ -14,23 +14,31 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DialogInputKeyWindow(object):
     def setupUi(self, DialogInputKeyWindow):
         DialogInputKeyWindow.setObjectName("DialogInputKeyWindow")
-        DialogInputKeyWindow.resize(283, 93)
+        DialogInputKeyWindow.resize(303, 129)
         self.gridLayout = QtWidgets.QGridLayout(DialogInputKeyWindow)
         self.gridLayout.setObjectName("gridLayout")
-        self.lineEditKey = QtWidgets.QLineEdit(DialogInputKeyWindow)
-        self.lineEditKey.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.lineEditKey.setObjectName("lineEditKey")
-        self.gridLayout.addWidget(self.lineEditKey, 1, 0, 1, 1)
+        self.label_2 = QtWidgets.QLabel(DialogInputKeyWindow)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(DialogInputKeyWindow)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
-        self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.buttonBox, 4, 0, 1, 1)
         self.label = QtWidgets.QLabel(DialogInputKeyWindow)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.lineEditKey = QtWidgets.QLineEdit(DialogInputKeyWindow)
+        self.lineEditKey.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.lineEditKey.setObjectName("lineEditKey")
+        self.gridLayout.addWidget(self.lineEditKey, 1, 0, 1, 1)
+        self.lineEditOTP = QtWidgets.QLineEdit(DialogInputKeyWindow)
+        self.lineEditOTP.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.lineEditOTP.setObjectName("lineEditOTP")
+        self.gridLayout.addWidget(self.lineEditOTP, 3, 0, 1, 1)
 
         self.retranslateUi(DialogInputKeyWindow)
         self.buttonBox.accepted.connect(DialogInputKeyWindow.accept)
@@ -40,6 +48,7 @@ class Ui_DialogInputKeyWindow(object):
     def retranslateUi(self, DialogInputKeyWindow):
         _translate = QtCore.QCoreApplication.translate
         DialogInputKeyWindow.setWindowTitle(_translate("DialogInputKeyWindow", "Input Key"))
+        self.label_2.setText(_translate("DialogInputKeyWindow", "OTP를 입력하세요."))
         self.label.setText(_translate("DialogInputKeyWindow", "복호화 키를 입력하세요."))
 
 
