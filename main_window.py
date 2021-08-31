@@ -107,6 +107,8 @@ class MainWindow(QMainWindow, Ui_PWMMainWindow):
     def optionCollision(self):
         if self.checkBoxIsUpperOnly.isChecked() is True and self.checkBoxIsLowerOnly.isChecked() is True:
             QMessageBox.information(self, 'Info', '소문자와 대문자를 동시에 제외할 수 없습니다.')
+            self.checkBoxIsUpperOnly.setChecked(False)
+            self.checkBoxIsLowerOnly.setChecked(False)
             self.optionCollisionFlag = True
         else:
             self.optionCollisionFlag = False

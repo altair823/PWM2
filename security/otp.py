@@ -1,7 +1,8 @@
 from datetime import datetime
 
-from pyotp import TOTP, random_hex, random_base32
+from pyotp import TOTP
 from qrcode import make
+from security.otp_key import TOTP_KEY
 
 
 class OTP:
@@ -12,7 +13,7 @@ class OTP:
     def makeCredential(self):
         # 배포판마다 다른 키 값을 가져야함! 무조건!
         # 키 생성은 random_base32()를 사용할 것.
-        self.totp = TOTP('4ZRJLVAMIY5NY7HEMVAG3BM5AQJSIGAT')
+        self.totp = TOTP(TOTP_KEY)
 
     def generatorOTP(self):
         return self.totp.now()
